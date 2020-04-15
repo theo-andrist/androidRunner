@@ -18,8 +18,14 @@ public class CharacterMovementController : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        myAnimator.SetFloat("horizontal", Input.GetAxis("Horizontal"));
-        myAnimator.SetFloat("vertical", Input.GetAxis("Vertical"));
+        if (horizontal == 1 || horizontal == 1 || vertical == 1 || vertical == -1)
+        {
+            myAnimator.SetBool("moving", true);
+        }
+        else
+        {
+            myAnimator.SetBool("moving", false);
+        }
 
         if (Input.GetKey(KeyCode.LeftShift))
             vertical *= sprintSpeedMultiplier;

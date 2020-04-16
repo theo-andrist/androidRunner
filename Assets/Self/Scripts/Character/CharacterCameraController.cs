@@ -4,6 +4,8 @@ public class CharacterCameraController : MonoBehaviour
 {
     public Transform characterBase;
     public float lookSpeed = 10f;
+
+    public Transform head;
     public float xRotationLimit = 75f;
 
     private float _camRotation;
@@ -22,6 +24,7 @@ public class CharacterCameraController : MonoBehaviour
         _camRotation = Mathf.Clamp(_camRotation, -xRotationLimit, xRotationLimit);
 
         transform.localRotation = Quaternion.Euler(_camRotation, 0f, 0f);
+        head.transform.localRotation = Quaternion.Euler(0f, 0f, _camRotation);
 
         characterBase.Rotate(x * lookSpeed * Time.deltaTime * 10f * Vector3.up);
         

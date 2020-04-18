@@ -16,10 +16,10 @@ TagManager:
   - 
   - PostProcessing
   - GrenadeExploding
-  - Player
+  - Me
   - GrenadeNotExploding
-  - 
-  - 
+  - OtherPlayer
+  - Canon
   - 
   - 
   - 

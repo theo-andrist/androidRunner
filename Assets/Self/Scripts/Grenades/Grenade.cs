@@ -1,10 +1,9 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Grenade : MonoBehaviour
 {
-    public float force;
+    [SerializeField] protected float force = 11;
 
     public float Force
     {
@@ -14,7 +13,7 @@ public class Grenade : MonoBehaviour
         }
     }
 
-    public int damage;
+    [SerializeField] protected int damage = 20;
 
     public int Damage
     {
@@ -24,7 +23,7 @@ public class Grenade : MonoBehaviour
         }
     }
 
-    public float timer;
+    [SerializeField] protected float timer = 3.5f;
 
     public float Timer
     {
@@ -34,7 +33,9 @@ public class Grenade : MonoBehaviour
         }
     }
 
-    public GameObject explosionEffect;
+    [SerializeField] protected GameObject explosionEffect = null;
+
+    [SerializeField] private int grenadeExplodeLayerId = 9;
 
     protected void Awake()
     {
@@ -51,14 +52,14 @@ public class Grenade : MonoBehaviour
     protected IEnumerator noticePlayer(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        gameObject.layer = 9;
+        gameObject.layer = grenadeExplodeLayerId;
     }
 
     protected void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<CharacterHealthController>().takeDamage(damage);
+            collision.gameObject.GetComponent<PlayerHealthController>().takeDamage(damage);
             explode();
         }
     }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 451915424}
   - component: {fileID: 1668150757209447544}
   m_Layer: 11
-  m_Name: BasicGrenade
+  m_Name: OnHitGrenade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1169820482776239566}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.7, z: 0.5}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children:
   - {fileID: 3624166932854629136}
   - {fileID: 5711653769318773531}
@@ -47,7 +47,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.6
   m_Center: {x: 0, y: -0.2, z: 0}
 --- !u!54 &451915424
 Rigidbody:
@@ -78,11 +78,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 11
-  damage: 20
+  damage: 40
   timer: 3.5
-  explosionEffect: {fileID: 1892078723244562, guid: 46876a2780737ec45a19d62f88e5ce56,
+  explosionEffect: {fileID: 1134129239631916, guid: 7e48ba6b1b968764490bbc70b66e3fe1,
     type: 3}
-  grenadeExplodeLayerId: 9
 --- !u!1 &1269973199165296474
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,7 +263,7 @@ Transform:
   m_GameObject: {fileID: 4754128415284362857}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: 0, y: -0.67999995, z: 0}
-  m_LocalScale: {x: 250, y: 250, z: 140}
+  m_LocalScale: {x: 250, y: 250, z: 160}
   m_Children: []
   m_Father: {fileID: 1758230972145340290}
   m_RootOrder: 0

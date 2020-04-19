@@ -22,7 +22,7 @@ public class PlayerMovementController : MonoBehaviourPun
 
     private void Update()
     {
-        if (photonView.IsMine)
+        if (photonView.IsMine || TestController.IsTesting)
         {
             MoveWithInputs();
         }

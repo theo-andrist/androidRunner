@@ -9,9 +9,10 @@ public class PlayerNameTag : MonoBehaviourPun
     
     void Start()
     {
-        if (photonView.IsMine) { return; }
-
-        SetName();
+        if (!photonView.IsMine && !TestController.IsTesting)
+        {
+            SetName();
+        }
     }
 
     private void SetName()

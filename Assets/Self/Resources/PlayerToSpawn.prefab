@@ -623,7 +623,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 7
   diagonalSpeedSubtractor: 1
-  jumpHeight: 2
+  jumpHeight: 1.5
   _gravity: -30
 --- !u!114 &4749882455605565181
 MonoBehaviour:
@@ -677,6 +677,7 @@ MonoBehaviour:
   grenadePrefab: {fileID: 1169820482776239566, guid: aca8983eb91b0f648a7ae3d1b4babea6,
     type: 3}
   spawnpoint: {fileID: 925245411784654358}
+  shootIntervall: 1
 --- !u!114 &6368603416752904784
 MonoBehaviour:
   m_ObjectHideFlags: 0

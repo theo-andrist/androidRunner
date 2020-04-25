@@ -53,7 +53,6 @@ public class Grenade : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             explode();
-            Debug.Log("?");
             collision.gameObject.GetComponent<PlayerHealthController>().TakeDamage(damage);
         }
     }

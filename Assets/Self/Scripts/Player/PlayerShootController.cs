@@ -7,10 +7,29 @@ public class PlayerShootController : MonoBehaviourPun
 
     [SerializeField] private GameObject spawnpoint = null;
 
-    // Update is called once per frame
+    [SerializeField] private float shootIntervall = 1f;
+    private float countdown = 0f;
+
+    private bool shootEnabled = false;
+
+    private void Start()
+    {
+        countdown = shootIntervall;
+    }
+
     void Update()
     {
-        if (Input.GetButtonDown("Grenade1"))
+        if (countdown >= 0 && !shootEnabled)
+        {
+            shootIntervall -= Time.deltaTime;
+        }
+        else
+        {
+            shootEnabled = true;
+            countdown = shootIntervall;
+        }
+
+        if (Input.GetButtonDown("Grenade1") && shootEnabled)
         {
             if (TestController.IsTesting)
             {
@@ -23,6 +42,7 @@ public class PlayerShootController : MonoBehaviourPun
                     photonView.RPC("ShootRPC", RpcTarget.All);
                 }
             }
+            shootEnabled = false;
         }
     }
     private void Shoot()

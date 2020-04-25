@@ -29,12 +29,16 @@ public class PlayerShootController : MonoBehaviourPun
     {
         
         GameObject grenade = Instantiate(grenadePrefab, spawnpoint.transform.position, spawnpoint.transform.localRotation);
-        grenade.GetComponent<Rigidbody>().AddForce(spawnpoint.transform.forward * grenade.GetComponent<Grenade>().Force * 100);
+        Grenade grenadeScript = grenade.GetComponent<Grenade>();
+        grenadeScript.Thrower = gameObject;
+        grenade.GetComponent<Rigidbody>().AddForce(spawnpoint.transform.forward * grenadeScript.Force * 100);
     }
     [PunRPC]
     private void ShootRPC()
     {
         GameObject grenade = Instantiate(grenadePrefab, spawnpoint.transform.position, spawnpoint.transform.localRotation);
-        grenade.GetComponent<Rigidbody>().AddForce(spawnpoint.transform.forward * grenade.GetComponent<Grenade>().Force * 100);
+        Grenade grenadeScript = grenade.GetComponent<Grenade>();
+        grenadeScript.Thrower = gameObject;
+        grenade.GetComponent<Rigidbody>().AddForce(spawnpoint.transform.forward * grenadeScript.Force * 100);
     }
 }

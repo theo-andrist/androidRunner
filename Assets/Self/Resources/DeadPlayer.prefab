@@ -361,7 +361,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c5d6b8920e60e404185dbfbdd6490851, type: 2}
+  - {fileID: 2100000, guid: 65a7938dad27b584c8422316504ae19a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -579,15 +579,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8427679514397894714}
-  - component: {fileID: 8427679514397894660}
   - component: {fileID: 4749882455605565181}
   - component: {fileID: 6803987947268151551}
-  - component: {fileID: 8600108691379058280}
-  - component: {fileID: 6368603416752904784}
-  - component: {fileID: 8427679514397894715}
   - component: {fileID: 1027050069797655832}
+  - component: {fileID: 4483115000798618157}
   m_Layer: 12
-  m_Name: PlayerToSpawn
+  m_Name: DeadPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -609,22 +606,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8427679514397894660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8427679514397894718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 702528c5c4c96994ea35dcfdd4c3a11d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 7
-  diagonalSpeedSubtractor: 1
-  jumpHeight: 2
-  _gravity: -30
 --- !u!114 &4749882455605565181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -662,54 +643,6 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
---- !u!114 &8600108691379058280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8427679514397894718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5818b2b8599e8745b641ad93b4e697e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grenadePrefab: {fileID: 1169820482776239566, guid: aca8983eb91b0f648a7ae3d1b4babea6,
-    type: 3}
-  spawnpoint: {fileID: 925245411784654358}
---- !u!114 &6368603416752904784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8427679514397894718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2d78109f06a0e44cbdd9d0caed2ab86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deadPlayerPrefab: {fileID: 8427679514397894718, guid: 3724703cac5e1da47ae41c6a0253dd3e,
-    type: 3}
-  maxHealth: 100
---- !u!143 &8427679514397894715
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8427679514397894718}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.4
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1027050069797655832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -723,3 +656,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNameText: {fileID: 4643143529839931943}
+--- !u!114 &4483115000798618157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8427679514397894718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a90b8db161a73694caae8a0729c50301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  countdown: 5

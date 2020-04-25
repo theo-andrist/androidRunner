@@ -1,10 +1,19 @@
 ﻿using System.Collections;
 using UnityEngine;
+using Photon.Pun;
 
 public class Grenade : MonoBehaviour
 {
-    [SerializeField] protected float force = 11;
+    protected GameObject thrower = null;
+    public GameObject Thrower
+    {
+        set
+        {
+            thrower = value;
+        }
+    }
 
+    [SerializeField] protected float force = 9;
     public float Force
     {
         get
@@ -14,24 +23,8 @@ public class Grenade : MonoBehaviour
     }
 
     [SerializeField] protected int damage = 20;
-
-    public int Damage
-    {
-        get
-        {
-            return damage;
-        }
-    }
-
     [SerializeField] protected float timer = 3.5f;
-
-    public float Timer
-    {
-        get
-        {
-            return timer;
-        }
-    }
+    [SerializeField] protected float radius = 0.5f;
 
     [SerializeField] protected GameObject explosionEffect = null;
 
@@ -59,8 +52,9 @@ public class Grenade : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<PlayerHealthController>().takeDamage(damage);
             explode();
+            Debug.Log("?");
+            collision.gameObject.GetComponent<PlayerHealthController>().TakeDamage(damage);
         }
     }
 

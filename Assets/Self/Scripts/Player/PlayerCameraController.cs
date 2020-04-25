@@ -26,14 +26,18 @@ public class PlayerCameraController : MonoBehaviourPun
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        if (photonView.IsMine)
+        {
+            Camera.main.transform.rotation = Quaternion.identity;
+        }
     }
 
     private void Update()
     {
         if (characterBase.GetComponent<PhotonView>().IsMine || TestController.IsTesting)
-         {
+        {
              LookAround();
-         }
+        }
     }
 
     private void LookAround()

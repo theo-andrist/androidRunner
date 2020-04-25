@@ -10,22 +10,29 @@ public class PlayerShootController : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
-        if (photonView.IsMine)
-        {
-            TakeInput();
-        }
-    }
-
-    private void TakeInput()
-    {
         if (Input.GetButtonDown("Grenade1"))
         {
-            photonView.RPC("Shoot", RpcTarget.All);
+            if (TestController.IsTesting)
+            {
+                Shoot();
+            }
+            else
+            {
+                if (photonView.IsMine)
+                {
+                    photonView.RPC("ShootRPC", RpcTarget.All);
+                }
+            }
         }
     }
-
-    [PunRPC]
     private void Shoot()
+    {
+        
+        GameObject grenade = Instantiate(grenadePrefab, spawnpoint.transform.position, spawnpoint.transform.localRotation);
+        grenade.GetComponent<Rigidbody>().AddForce(spawnpoint.transform.forward * grenade.GetComponent<Grenade>().Force * 100);
+    }
+    [PunRPC]
+    private void ShootRPC()
     {
         GameObject grenade = Instantiate(grenadePrefab, spawnpoint.transform.position, spawnpoint.transform.localRotation);
         grenade.GetComponent<Rigidbody>().AddForce(spawnpoint.transform.forward * grenade.GetComponent<Grenade>().Force * 100);

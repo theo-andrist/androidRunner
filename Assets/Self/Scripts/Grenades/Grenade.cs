@@ -35,7 +35,7 @@ public class Grenade : MonoBehaviour
 
     [SerializeField] protected GameObject explosionEffect = null;
 
-    [SerializeField] private int grenadeExplodeLayerId = 9;
+    private int grenadeExplodeLayerId = 9;
 
     protected void Awake()
     {

@@ -30,10 +30,10 @@ public class PlayerCameraController : MonoBehaviourPun
 
     private void Update()
     {
-        if (characterBase.GetComponent<PhotonView>().IsMine)
-        {
-            LookAround();
-        }
+        if (characterBase.GetComponent<PhotonView>().IsMine || TestController.IsTesting)
+         {
+             LookAround();
+         }
     }
 
     private void LookAround()

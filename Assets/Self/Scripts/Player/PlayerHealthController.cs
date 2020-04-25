@@ -26,7 +26,7 @@ public class PlayerHealthController : MonoBehaviourPun
     {
         currentHealth -= damage;
 
-        if (photonView.IsMine)
+        if (photonView.IsMine || TestController.IsTesting)
         {
             healthBar.UpdateBar(currentHealth, maxHealth);
         }
@@ -35,7 +35,6 @@ public class PlayerHealthController : MonoBehaviourPun
         {
             die();
         }
-        Debug.Log($"{currentHealth + damage} - {damage} = {currentHealth}");
     }
 
     private void die()

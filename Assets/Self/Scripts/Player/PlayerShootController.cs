@@ -21,7 +21,7 @@ public class PlayerShootController : MonoBehaviourPun
     {
         if (countdown >= 0 && !shootEnabled)
         {
-            shootIntervall -= Time.deltaTime;
+            countdown -= Time.deltaTime;
         }
         else
         {
